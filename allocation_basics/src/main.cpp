@@ -4,6 +4,6 @@
 
 int main()
 {
-   std::cout<<"aa";
+   std::cout<<"ba";
     return 0;
 }
