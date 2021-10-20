@@ -3,5 +3,5 @@ project(allocation_basics)
 
 set(CMAKE_CXX_STANDARD 14)
 include_directories(include)
-add_executable(allocation_basics src/main.cpp include/main.h)
+add_executable(allocation_basics src/main.cpp include/main.h ../firstLib/src/lib.cpp ../firstLib/include/lib.h ../firstLibCall/main.cpp ../zadania_18.10.21/zadania_funkcje.cpp)
 
