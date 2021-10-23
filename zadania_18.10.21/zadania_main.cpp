@@ -182,13 +182,13 @@ cout << "\n------------------------ZADANIE 5---------------------------\n" << en
  char* tekst = new char[50];
  cin.ignore(); //komenda usuwa znak bufora '\n' pozostaly przez poprzedni "cin"
  cin.getline(tekst,50);
- int tekst_int;
+
 
  try
  {
 
-     tekst_int = konwertuj(tekst);
      cout<<"Wynik konwersji: "<<tekst<<endl;
+
  }
 
  catch (invalid_argument& e1)
