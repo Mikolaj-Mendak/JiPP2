@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 14)
 add_subdirectory(simpleCalc)
 add_subdirectory(allocation_basics)
 add_subdirectory(zadania_18.10.21)
-
 add_subdirectory(firstLib)
+add_subdirectory(firstLibCall)
