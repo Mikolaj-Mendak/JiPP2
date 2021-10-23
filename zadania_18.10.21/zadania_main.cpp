@@ -173,9 +173,14 @@ cout << "\n------------------------ZADANIE 5---------------------------\n" << en
 
 
     cout << "\n------------------------ZADANIE 10---------------------------\n" << endl;
+
+
+
+
     cout<<"Wprowadz ciag znakow do konwersji: "<<endl;
 
  char* tekst = new char[50];
+ cin.ignore(); //komenda usuwa znak bufora '\n' pozostaly przez poprzedni "cin"
  cin.getline(tekst,50);
  int tekst_int;
 
@@ -199,18 +204,5 @@ cout << "\n------------------------ZADANIE 5---------------------------\n" << en
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-return 0;
 }
 
