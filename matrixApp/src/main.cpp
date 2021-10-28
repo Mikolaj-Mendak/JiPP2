@@ -1,7 +1,6 @@
 #include <iostream>
 #include <time.h>
 #include <cstdlib>
-#include "../include/mainHeader.h"
 #include <matrixLib.h>
 #include<string>
 static int **matrixAllocationInt(int numberOfRows, int numberOfColumns);
@@ -19,13 +18,13 @@ int main(int argc, char *argv[]) {
 
 
 
-    if(string(argv[1]) == "help")
+    if(string(argv[1]) == "help" || argc != 2)
     {
         help();
         exit(1);
     }
 
-    int i,j,k,l,m,n;
+    int i,j;
 
     //uzytkownik wybiera typ danych
     int typeOfData = 0;
@@ -87,6 +86,8 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne,numberOfRowsOne);
         deleteMatrix(matrixTwo,numberOfRowsTwo);
         deleteMatrix(matrixResult,numberOfRowsTwo);
+
+        exit(1);
     }
 
 
@@ -141,6 +142,8 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne,numberOfRowsOne);
         deleteMatrix(matrixTwo,numberOfRowsTwo);
         deleteMatrix(matrixResult,numberOfRowsTwo);
+
+        exit(1);
     }
 
     //---------------------------odejmowanie macierzy int---------------------------
@@ -175,7 +178,7 @@ int main(int argc, char *argv[]) {
             for(j = 0; j < numberOfColumnsTwo; j++)
                 cin>>matrixTwo[i][j];
 
-        //wykonanie funkcji dodawania macierzy
+        //wykonanie funkcji odejmowania macierzy
         int **matrixResult = subtractMatrix(matrixOne,matrixTwo,numberOfColumnsOne,numberOfRowsOne);
 
 
@@ -194,11 +197,13 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne,numberOfRowsOne);
         deleteMatrix(matrixTwo,numberOfRowsTwo);
         deleteMatrix(matrixResult,numberOfRowsTwo);
+
+        exit(1);
     }
 
 
 
-    //---------------------------dodawanie macierzy double---------------------------
+    //---------------------------odejmowanie macierzy double---------------------------
     if(string(argv[1]) == "subtractMatrix" && typeOfData == 2)
     {
         int numberOfRowsOne, numberOfRowsTwo, numberOfColumnsOne, numberOfColumnsTwo;
@@ -231,7 +236,7 @@ int main(int argc, char *argv[]) {
             for(j = 0; j < numberOfColumnsTwo; j++)
                 cin>>matrixTwo[i][j];
 
-        //wykonanie funkcji dodawania macierzy
+        //wykonanie funkcji odejmowania macierzy
         double **matrixResult = subtractMatrix(matrixOne,matrixTwo,numberOfColumnsOne,numberOfRowsOne);
 
         //czytanie macierzy
@@ -248,6 +253,8 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne,numberOfRowsOne);
         deleteMatrix(matrixTwo,numberOfRowsTwo);
         deleteMatrix(matrixResult,numberOfRowsTwo);
+
+        exit(1);
     }
 
 
@@ -284,8 +291,9 @@ int main(int argc, char *argv[]) {
             for(j = 0; j < numberOfColumnsTwo; j++)
                 cin>>matrixTwo[i][j];
 
-        //wykonanie funkcji dodawania macierzy
+        //wykonanie funkcji mnozenia macierzy
         int **matrixResult = multiplyMatrix(matrixOne,matrixTwo,numberOfRowsOne,numberOfColumnsOne,numberOfColumnsTwo);
+
         //czytanie macierzy
         cout<<"\nMATRIX ONE: "<<endl;
         ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
@@ -300,6 +308,8 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne,numberOfRowsOne);
         deleteMatrix(matrixTwo,numberOfRowsTwo);
         deleteMatrix(matrixResult,numberOfRowsOne);
+
+        exit(1);
 
     }
 
@@ -336,8 +346,9 @@ int main(int argc, char *argv[]) {
             for(j = 0; j < numberOfColumnsTwo; j++)
                 cin>>matrixTwo[i][j];
 
-        //wykonanie funkcji dodawania macierzy
+        //wykonanie funkcji mnozenia macierzy
         double **matrixResult = multiplyMatrix(matrixOne,matrixTwo,numberOfRowsOne,numberOfColumnsOne,numberOfColumnsTwo);
+
         //czytanie macierzy
         cout<<"\nMATRIX ONE: "<<endl;
         ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
@@ -352,6 +363,8 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne,numberOfRowsOne);
         deleteMatrix(matrixTwo,numberOfRowsTwo);
         deleteMatrix(matrixResult,numberOfRowsOne);
+
+        exit(1);
 
     }
 
@@ -380,6 +393,7 @@ int main(int argc, char *argv[]) {
             for (j = 0; j < numberOfColumnsOne; j++)
                 cin >> matrixOne[i][j];
 
+        //wykonanie operacji mnozenia przes skalar
         matrixOne = multiplyByScalar(matrixOne, numberOfRowsOne, numberOfColumnsOne, skalar);
 
 
@@ -390,6 +404,8 @@ int main(int argc, char *argv[]) {
 
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
+
+        exit(1);
 
 
     }
@@ -420,6 +436,7 @@ int main(int argc, char *argv[]) {
             for (j = 0; j < numberOfColumnsOne; j++)
                 cin >> matrixOne[i][j];
 
+        //wykonanie operacji mnozenia przes skalar
         matrixOne = multiplyByScalar(matrixOne, numberOfRowsOne, numberOfColumnsOne, skalar);
 
 
@@ -430,6 +447,8 @@ int main(int argc, char *argv[]) {
 
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
+
+        exit(1);
 
 
     }
@@ -471,6 +490,8 @@ int main(int argc, char *argv[]) {
             deleteMatrix(matrixOne, numberOfRowsOne);
             deleteMatrix(matrixResult, numberOfColumnsOne);
 
+            exit(1);
+
 
         }
 
@@ -511,6 +532,8 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne, numberOfRowsOne);
         deleteMatrix(matrixResult, numberOfColumnsOne);
 
+        exit(1);
+
 
     }
 
@@ -520,7 +543,8 @@ int main(int argc, char *argv[]) {
 
     if(string(argv[1]) == "powerMatrix" && typeOfData == 1)
     {
-        int numberOfRowsOne, numberOfColumnsOne,power;
+        int numberOfRowsOne, numberOfColumnsOne;
+        unsigned int power;
         cout << "Podaj stopien potegi: ";
         cin >> power;
         cout << "Podaj ilosc wierszy macierzy: ";
@@ -557,13 +581,15 @@ int main(int argc, char *argv[]) {
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
         deleteMatrix(matrixResult, numberOfRowsOne);
+
+        exit(1);
     }
 
     //--------------potegowanie macierzy typ double
     if(string(argv[1]) == "powerMatrix" && typeOfData == 2)
     {
         int numberOfRowsOne, numberOfColumnsOne;
-        double power;
+        unsigned int power;
         cout << "Podaj stopien potegi: ";
         cin >> power;
         cout << "Podaj ilosc wierszy macierzy: ";
@@ -598,13 +624,15 @@ int main(int argc, char *argv[]) {
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
         deleteMatrix(matrixResult, numberOfRowsOne);
+
+        exit(1);
     }
 
 
     //--------------wyznacznik macierzy typ int
     if(string(argv[1]) == "determinantMatrix" && typeOfData == 1)
     {
-        int numberOfRowsOne, numberOfColumnsOne,power;
+        int numberOfRowsOne, numberOfColumnsOne;
         cout << "Podaj ilosc wierszy macierzy: ";
         cin >> numberOfRowsOne;
         cout << endl;
@@ -634,6 +662,8 @@ int main(int argc, char *argv[]) {
 
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
+
+        exit(1);
     }
 
 
@@ -641,7 +671,7 @@ int main(int argc, char *argv[]) {
     //--------------wyznacznik macierzy typ double
     if(string(argv[1]) == "determinantMatrix" && typeOfData == 2)
     {
-        int numberOfRowsOne, numberOfColumnsOne,power;
+        int numberOfRowsOne, numberOfColumnsOne;
         cout << "Podaj ilosc wierszy macierzy: ";
         cin >> numberOfRowsOne;
         cout << endl;
@@ -671,6 +701,8 @@ int main(int argc, char *argv[]) {
 
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
+
+        exit(1);
     }
 
 
@@ -704,6 +736,8 @@ int main(int argc, char *argv[]) {
 
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
+
+        exit(1);
     }
 
 
@@ -735,6 +769,8 @@ int main(int argc, char *argv[]) {
 
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
+
+        exit(1);
     }
 
 
@@ -749,6 +785,8 @@ int main(int argc, char *argv[]) {
         swap(a,b);
 
         cout<<"Zmienne po zamianie swapem: \n"<<"a = "<<a<<"\nb = "<<b<<endl;
+
+        exit(1);
     }
 
     //---------swap typ double-----------
@@ -762,6 +800,8 @@ int main(int argc, char *argv[]) {
         swap(a,b);
 
         cout<<"Zmienne po zamianie swapem: \n"<<"a = "<<a<<"\nb = "<<b<<endl;
+
+        exit(1);
     }
 
     //------------sortRow typu int -----------------
@@ -786,6 +826,8 @@ int main(int argc, char *argv[]) {
             cout<<tab[i]<<" ";
 
         delete [] tab;
+
+        exit(1);
     }
 
     //------------sortRow typu double -----------------
@@ -810,6 +852,8 @@ int main(int argc, char *argv[]) {
             cout<<tab[i]<<" ";
 
         delete [] tab;
+
+        exit(1);
     }
 
 
@@ -847,6 +891,8 @@ int main(int argc, char *argv[]) {
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
         deleteMatrix(matrixResult, numberOfRowsOne);
+
+        exit(1);
 
 
     }
@@ -888,11 +934,13 @@ int main(int argc, char *argv[]) {
         deleteMatrix(matrixOne, numberOfRowsOne);
         deleteMatrix(matrixResult, numberOfRowsOne);
 
+        exit(1);
+
 
     }
 
 
-
+    help();
 
 
     return 0;

@@ -520,7 +520,7 @@ double *sortRow(double *array,int numberOfColumns)
 
 int **sortRowInMatrix(int **matrixA, int numberOfRows, int numberOfColumns)
 {
-    int i, j,k, pom;
+    int i, j,k;
     //tworze macierz wymikowa
     int **matrixResult = new int *[numberOfRows];
     for (int i = 0; i < numberOfRows; i++)
