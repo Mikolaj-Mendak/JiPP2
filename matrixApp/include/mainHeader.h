@@ -1,0 +1,5 @@
+
+#ifndef JIPP_MAINHEADER_H
+#define JIPP_MAINHEADER_H
+
+#endif //JIPP_MAINHEADER_H
