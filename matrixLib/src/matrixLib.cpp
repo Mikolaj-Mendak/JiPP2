@@ -577,17 +577,18 @@ double **sortRowInMatrix(double **matrixA, int numberOfRows, int numberOfColumns
 void help()
 {
     cout << "---DOKUMENTACJA PROGRAMU MATRIXAPP--- " << endl;
-    cout << "-[addMatrix] dodawanie macierzy" << endl;
-    cout << "-[subtractMatrix] odejmowanie macierzy" << endl;
-    cout << "-[multiplyMatrix] mnozenie dwoch macierzy"<<endl;
-    cout << "-[multiplyByScalar] mnozenie przez skalar" << endl;
-    cout << "-[transpozeMatrix] transponowanie macierzy" << endl;
-    cout << "-[powerMatrix] potegowanie macierzy - jako drugi argument nalezy podac potege (np. powerMatrix 2)"<<endl;
-    cout << "-[determinantMatrix] wyznaczanie wyznacznika macierzy"<<endl;
-    cout << "-[matrixIsDiagonal] sprawdzanie diagonalnosci macierzy"<<endl;
-    cout << "-[swap] zamiana dwoch wartosci miejscami"<<endl;
-    cout << "-[sortRow] sorotwanie tablicy babelkowo"<<endl;
-    cout << "-[sortRowsInMatrix] sorotwanie wierszy macierzy"<<endl;
+    cout << "-Wpisz jako argument programu [addMatrix] w celu dodawanie macierzy, nastepnie postepuj zgodnie z poleceniami" << endl;
+    cout << "-Wpisz jako argument programu [subtractMatrix] odejmowanie macierzy, nastepnie postepuj zgodnie z poleceniami" << endl;
+    cout << "-Wpisz jako argument programu [multiplyMatrix] mnozenie dwoch macierzy, nastepnie postepuj zgodnie z poleceniami"<<endl;
+    cout << "-Wpisz jako argument programu [multiplyByScalar] mnozenie przez skalar, nastepnie postepuj zgodnie z poleceniami" << endl;
+    cout << "-Wpisz jako argument programu [transpozeMatrix] transponowanie macierzy, nastepnie postepuj zgodnie z poleceniami" << endl;
+    cout << "-Wpisz jako argument programu [powerMatrix] potegowanie macierzy - jako drugi argument nalezy podac potege (np. powerMatrix 2),";
+    cout<<"nastepnie postepuj zgodnie z poleceniami"<<endl;
+    cout << "-Wpisz jako argument programu [determinantMatrix] wyznaczanie wyznacznika macierzy, nastepnie postepuj zgodnie z poleceniami"<<endl;
+    cout << "-Wpisz jako argument programu [matrixIsDiagonal] sprawdzanie diagonalnosci macierzy, nastepnie postepuj zgodnie z poleceniami"<<endl;
+    cout << "-Wpisz jako argument programu [swap] zamiana dwoch wartosci miejscami, nastepnie postepuj zgodnie z poleceniami"<<endl;
+    cout << "-Wpisz jako argument programu [sortRow] sorotwanie tablicy babelkowo, nastepnie postepuj zgodnie z poleceniami"<<endl;
+    cout << "-Wpisz jako argument programu [sortRowsInMatrix] sorotwanie wierszy macierzy, nastepnie postepuj zgodnie z poleceniami"<<endl;
 
 }
 
