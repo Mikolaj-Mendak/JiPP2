@@ -6,7 +6,7 @@
 using namespace std;
 
 
-
+//opisy funkcji znajduja sie w matrixLib.h
 
 int **addMatrix(int **matrixOne, int **matrixTwo, int numberOfColumns, int numberOfRows)
 {
@@ -260,7 +260,8 @@ int **powerMatrix(int **matrixA, int numberOfRows, int numberOfColumns,unsigned 
 double **powerMatrix(double **matrixA, int numberOfRows, int numberOfColumns,unsigned int power)
 {
 
-    int i,j,result,k;
+    int i,j,k;
+    double result;
 
     //tworze macierz wynikowa oraz alokuje jej pamiec
     double  **matrixResult = new double *[numberOfRows];
@@ -269,10 +270,10 @@ double **powerMatrix(double **matrixA, int numberOfRows, int numberOfColumns,uns
         matrixResult[i] = new double [numberOfColumns];
 
     //tworze macierz pomocnicza
-    int **matrixTemp = new int *[numberOfRows];
+    double **matrixTemp = new double *[numberOfRows];
 
     for(int i = 0; i < numberOfRows; i++)
-        matrixTemp[i] = new int [numberOfColumns];
+        matrixTemp[i] = new double [numberOfColumns];
 
 
 
@@ -581,7 +582,7 @@ void help()
     cout << "-[multiplyMatrix] mnozenie dwoch macierzy"<<endl;
     cout << "-[multiplyByScalar] mnozenie przez skalar" << endl;
     cout << "-[transpozeMatrix] transponowanie macierzy" << endl;
-    cout << "-[powerMatrix] potegowanie macierzy"<<endl;
+    cout << "-[powerMatrix] potegowanie macierzy - jako drugi argument nalezy podac potege (np. powerMatrix 2)"<<endl;
     cout << "-[determinantMatrix] wyznaczanie wyznacznika macierzy"<<endl;
     cout << "-[matrixIsDiagonal] sprawdzanie diagonalnosci macierzy"<<endl;
     cout << "-[swap] zamiana dwoch wartosci miejscami"<<endl;

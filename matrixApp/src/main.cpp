@@ -9,6 +9,8 @@ static int deleteMatrix(int **Matrix, int numberOfRows);
 static double deleteMatrix(double **Matrix, int numberOfRows);
 void **ReadMatrix(double **matrix, int numberOfRows, int numberOfColumns);
 void **ReadMatrix(int **matrix, int numberOfRows, int numberOfColumns);
+void **matrixWrite(int **matrix,int numberOfRows,int numberOfColumns);
+void **matrixWrite(double **matrix,int numberOfRows,int numberOfColumns);
 
 
 
@@ -18,7 +20,8 @@ int main(int argc, char *argv[]) {
 
 
 
-    if(string(argv[1]) == "help" || argc != 2)
+    if(string(argv[1]) == "help" || ((string(argv[1]) == "powerMatrix") && argc != 3)
+        || ((string(argv[1]) != "powerMatrix") && argc != 2))
     {
         help();
         exit(1);
@@ -58,14 +61,10 @@ int main(int argc, char *argv[]) {
         int **matrixTwo = matrixAllocationInt(numberOfRowsTwo, numberOfColumnsTwo);
 
         cout<<"Wprowadz elementy macierzy pierwszej: \n";
-        for(i = 0; i < numberOfRowsOne; i++ )
-            for(j = 0; j < numberOfColumnsOne; j++)
-                cin>>matrixOne[i][j];
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         cout<<"Wprowadz elementy macierzy drugiej: \n";
-        for(i = 0; i < numberOfRowsTwo; i++ )
-            for(j = 0; j < numberOfColumnsTwo; j++)
-                cin>>matrixTwo[i][j];
+        matrixWrite(matrixTwo,numberOfRowsTwo,numberOfColumnsTwo);
 
         //wykonanie funkcji dodawania macierzy
         int **matrixResult = addMatrix(matrixOne,matrixTwo,numberOfColumnsOne,numberOfRowsOne);
@@ -116,14 +115,11 @@ int main(int argc, char *argv[]) {
 
         //wprowadzenie elementow macierzy
         cout<<"Wprowadz elementy macierzy pierwszej: \n";
-        for(i = 0; i < numberOfRowsOne; i++ )
-            for(j = 0; j < numberOfColumnsOne; j++)
-                cin>>matrixOne[i][j];
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
+
 
         cout<<"Wprowadz elementy macierzy drugiej: \n";
-        for(i = 0; i < numberOfRowsTwo; i++ )
-            for(j = 0; j < numberOfColumnsTwo; j++)
-                cin>>matrixTwo[i][j];
+        matrixWrite(matrixTwo,numberOfRowsTwo,numberOfColumnsTwo);
 
         //wykonanie funkcji dodawania macierzy
         double **matrixResult = addMatrix(matrixOne,matrixTwo,numberOfColumnsOne,numberOfRowsOne);
@@ -169,14 +165,10 @@ int main(int argc, char *argv[]) {
         int **matrixTwo = matrixAllocationInt(numberOfRowsTwo, numberOfColumnsTwo);
 
         cout<<"Wprowadz elementy macierzy pierwszej: \n";
-        for(i = 0; i < numberOfRowsOne; i++ )
-            for(j = 0; j < numberOfColumnsOne; j++)
-                cin>>matrixOne[i][j];
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         cout<<"Wprowadz elementy macierzy drugiej: \n";
-        for(i = 0; i < numberOfRowsTwo; i++ )
-            for(j = 0; j < numberOfColumnsTwo; j++)
-                cin>>matrixTwo[i][j];
+        matrixWrite(matrixTwo,numberOfRowsTwo,numberOfColumnsTwo);
 
         //wykonanie funkcji odejmowania macierzy
         int **matrixResult = subtractMatrix(matrixOne,matrixTwo,numberOfColumnsOne,numberOfRowsOne);
@@ -227,14 +219,10 @@ int main(int argc, char *argv[]) {
 
         //wprowadzenie elementow macierzy
         cout<<"Wprowadz elementy macierzy pierwszej: \n";
-        for(i = 0; i < numberOfRowsOne; i++ )
-            for(j = 0; j < numberOfColumnsOne; j++)
-                cin>>matrixOne[i][j];
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         cout<<"Wprowadz elementy macierzy drugiej: \n";
-        for(i = 0; i < numberOfRowsTwo; i++ )
-            for(j = 0; j < numberOfColumnsTwo; j++)
-                cin>>matrixTwo[i][j];
+        matrixWrite(matrixTwo,numberOfRowsTwo,numberOfColumnsTwo);
 
         //wykonanie funkcji odejmowania macierzy
         double **matrixResult = subtractMatrix(matrixOne,matrixTwo,numberOfColumnsOne,numberOfRowsOne);
@@ -280,16 +268,11 @@ int main(int argc, char *argv[]) {
         int **matrixOne = matrixAllocationInt(numberOfRowsOne, numberOfColumnsOne);
         int **matrixTwo = matrixAllocationInt(numberOfRowsTwo, numberOfColumnsTwo);
 
-        //wprowadzenie elementow macierzy
         cout<<"Wprowadz elementy macierzy pierwszej: \n";
-        for(i = 0; i < numberOfRowsOne; i++ )
-            for(j = 0; j < numberOfColumnsOne; j++)
-                cin>>matrixOne[i][j];
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         cout<<"Wprowadz elementy macierzy drugiej: \n";
-        for(i = 0; i < numberOfRowsTwo; i++ )
-            for(j = 0; j < numberOfColumnsTwo; j++)
-                cin>>matrixTwo[i][j];
+        matrixWrite(matrixTwo,numberOfRowsTwo,numberOfColumnsTwo);
 
         //wykonanie funkcji mnozenia macierzy
         int **matrixResult = multiplyMatrix(matrixOne,matrixTwo,numberOfRowsOne,numberOfColumnsOne,numberOfColumnsTwo);
@@ -337,14 +320,10 @@ int main(int argc, char *argv[]) {
 
         //wprowadzenie elementow macierzy
         cout<<"Wprowadz elementy macierzy pierwszej: \n";
-        for(i = 0; i < numberOfRowsOne; i++ )
-            for(j = 0; j < numberOfColumnsOne; j++)
-                cin>>matrixOne[i][j];
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         cout<<"Wprowadz elementy macierzy drugiej: \n";
-        for(i = 0; i < numberOfRowsTwo; i++ )
-            for(j = 0; j < numberOfColumnsTwo; j++)
-                cin>>matrixTwo[i][j];
+        matrixWrite(matrixTwo,numberOfRowsTwo,numberOfColumnsTwo);
 
         //wykonanie funkcji mnozenia macierzy
         double **matrixResult = multiplyMatrix(matrixOne,matrixTwo,numberOfRowsOne,numberOfColumnsOne,numberOfColumnsTwo);
@@ -388,10 +367,8 @@ int main(int argc, char *argv[]) {
         int **matrixOne = matrixAllocationInt(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         //wykonanie operacji mnozenia przes skalar
         matrixOne = multiplyByScalar(matrixOne, numberOfRowsOne, numberOfColumnsOne, skalar);
@@ -431,10 +408,8 @@ int main(int argc, char *argv[]) {
         double **matrixOne = matrixAllocationDouble(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         //wykonanie operacji mnozenia przes skalar
         matrixOne = multiplyByScalar(matrixOne, numberOfRowsOne, numberOfColumnsOne, skalar);
@@ -471,16 +446,15 @@ int main(int argc, char *argv[]) {
             int **matrixOne = matrixAllocationInt(numberOfRowsOne, numberOfColumnsOne);
 
             //wprowadzenie elementow macierzy
-            cout << "Wprowadz elementy macierzy pierwszej: \n";
-            for (i = 0; i < numberOfRowsOne; i++)
-                for (j = 0; j < numberOfColumnsOne; j++)
-                    cin >> matrixOne[i][j];
+            cout<<"Wprowadz elementy macierzy: \n";
+            matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
+
 
             //transponuje macierz
             int **matrixResult = transpozeMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
 
             //czytanie macierzy
-            cout << "\nMATRIX RESULT: " << endl;
+            cout << "\nMATRIX: " << endl;
             ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
 
             cout << "\nMATRIX RESULT: " << endl;
@@ -513,16 +487,14 @@ int main(int argc, char *argv[]) {
         double **matrixOne = matrixAllocationDouble(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         //transponuje macierz
         double **matrixResult = transpozeMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
 
         //czytanie macierzy
-        cout << "\nMATRIX RESULT: " << endl;
+        cout << "\nMATRIX: " << endl;
         ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
 
         cout << "\nMATRIX RESULT: " << endl;
@@ -544,9 +516,6 @@ int main(int argc, char *argv[]) {
     if(string(argv[1]) == "powerMatrix" && typeOfData == 1)
     {
         int numberOfRowsOne, numberOfColumnsOne;
-        unsigned int power;
-        cout << "Podaj stopien potegi: ";
-        cin >> power;
         cout << "Podaj ilosc wierszy macierzy: ";
         cin >> numberOfRowsOne;
         cout << endl;
@@ -559,19 +528,17 @@ int main(int argc, char *argv[]) {
         int **matrixOne = matrixAllocationInt(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
 
         //podnosze macierz do potegi
-       int **matrixResult = powerMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne,power);
+       int **matrixResult = powerMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne,stoi(argv[2]));
 
 
 
         //czytanie macierzy
-        cout << "\nMATRIX RESULT: " << endl;
+        cout << "\nMATRIX: " << endl;
         ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
 
         cout << "\nMATRIX RESULT: " << endl;
@@ -589,9 +556,6 @@ int main(int argc, char *argv[]) {
     if(string(argv[1]) == "powerMatrix" && typeOfData == 2)
     {
         int numberOfRowsOne, numberOfColumnsOne;
-        unsigned int power;
-        cout << "Podaj stopien potegi: ";
-        cin >> power;
         cout << "Podaj ilosc wierszy macierzy: ";
         cin >> numberOfRowsOne;
         cout << endl;
@@ -604,22 +568,19 @@ int main(int argc, char *argv[]) {
         double **matrixOne = matrixAllocationDouble(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
 
         //podnosze macierz do potegi
-        double **matrixResult = powerMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne,power);
+        double **matrixResult = powerMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne,stod(argv[2]));
 
         //czytanie macierzy
-        cout << "\nMATRIX RESULT: " << endl;
+        cout << "\nMATRIX: " << endl;
         ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
 
         cout << "\nMATRIX RESULT: " << endl;
         ReadMatrix(matrixResult, numberOfColumnsOne, numberOfRowsOne);
-
 
         //usuniecie zalokowanej pamieci
         deleteMatrix(matrixOne, numberOfRowsOne);
@@ -644,10 +605,8 @@ int main(int argc, char *argv[]) {
         int **matrixOne = matrixAllocationInt(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         //wyznaczam wyznacznik macierzy
         int wyznacznik = determinantMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
@@ -683,10 +642,8 @@ int main(int argc, char *argv[]) {
         double **matrixOne = matrixAllocationDouble(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         //wyznaczam wyznacznik macierzy
         double wyznacznik = determinantMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
@@ -723,10 +680,8 @@ int main(int argc, char *argv[]) {
         int **matrixOne = matrixAllocationInt(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
 
         if (matrixIsDiagonal(matrixOne, numberOfRowsOne, numberOfColumnsOne))
@@ -756,10 +711,8 @@ int main(int argc, char *argv[]) {
         double **matrixOne = matrixAllocationDouble(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
 
         if (matrixIsDiagonal(matrixOne, numberOfRowsOne, numberOfColumnsOne))
@@ -779,8 +732,18 @@ int main(int argc, char *argv[]) {
         int a,b;
         cout << "Wprowadz wartosc zmiennej a"<<endl;
         cin >> a;
+        if (cin.fail())
+        {
+            cout << "Wprowadzono niepoprawny znak!";
+            exit(-1);
+        }
         cout << "Wprowadz wartosc zmiennej b"<<endl;
         cin >> b;
+        if (cin.fail())
+        {
+            cout << "Wprowadzono niepoprawny znak!";
+            exit(-1);
+        }
 
         swap(a,b);
 
@@ -794,8 +757,18 @@ int main(int argc, char *argv[]) {
         double a,b;
         cout << "Wprowadz wartosc zmiennej a"<<endl;
         cin >> a;
+        if (cin.fail())
+        {
+            cout << "Wprowadzono niepoprawny znak!";
+            exit(-1);
+        }
         cout << "Wprowadz wartosc zmiennej b"<<endl;
         cin >> b;
+        if (cin.fail())
+        {
+            cout << "Wprowadzono niepoprawny znak!";
+            exit(-1);
+        }
 
         swap(a,b);
 
@@ -816,7 +789,15 @@ int main(int argc, char *argv[]) {
         //wprowadzenie wartosci do tablicy
         cout<<"Wprowadz wartosci do tablicy:  \n";
         for(i = 0 ; i < numberOfColumns; i++)
-            cin>>tab[i];
+        {
+            cin >> tab[i];
+            if (cin.fail())
+            {
+                cout << "Wprowadzono niepoprawny znak!";
+                exit(-1);
+            }
+        }
+
 
         //sortowanie tablicy
         tab = sortRow(tab,numberOfColumns);
@@ -840,9 +821,15 @@ int main(int argc, char *argv[]) {
         double *tab = new double [numberOfColumns];
 
         //wprowadzenie wartosci do tablicy
-        cout<<"Wprowadz wartosci do tablicy: \n";
+        cout<<"Wprowadz wartosci do tablicy:  \n";
         for(i = 0 ; i < numberOfColumns; i++)
-            cin>>tab[i];
+        {
+            cin >> tab[i];
+            if (cin.fail()) {
+                cout << "Wprowadzono niepoprawny znak!";
+                exit(-1);
+            }
+        }
 
         //sortowanie tablicy
         tab = sortRow(tab,numberOfColumns);
@@ -858,7 +845,7 @@ int main(int argc, char *argv[]) {
 
 
     //------------sortRowInMatrix typu int -----------------
-    if(string(argv[1]) == "sortRowInMatrix" && typeOfData == 1) {
+    if(string(argv[1]) == "sortRowsInMatrix" && typeOfData == 1) {
         int numberOfRowsOne, numberOfColumnsOne;
         cout << "Podaj ilosc wierszy macierzy: ";
         cin >> numberOfRowsOne;
@@ -872,16 +859,14 @@ int main(int argc, char *argv[]) {
         int **matrixOne = matrixAllocationInt(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         //posortowanie wierszy macierzy
         int **matrixResult = sortRowInMatrix(matrixOne,numberOfRowsOne,numberOfRowsOne);
 
         //czytanie macierzy
-        cout << "\nMATRIX ONE: " << endl;
+        cout << "\nMATRIX: " << endl;
         ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
         cout << "\nMATRIX RESULT: " << endl;
         ReadMatrix(matrixResult, numberOfRowsOne, numberOfColumnsOne);
@@ -900,7 +885,7 @@ int main(int argc, char *argv[]) {
 
 
     //------------sortRowInMatrix typu double -----------------
-    if(string(argv[1]) == "sortRowInMatrix" && typeOfData == 2) {
+    if(string(argv[1]) == "sortRowsInMatrix" && typeOfData == 2) {
         int numberOfRowsOne, numberOfColumnsOne;
         cout << "Podaj ilosc wierszy macierzy: ";
         cin >> numberOfRowsOne;
@@ -914,16 +899,14 @@ int main(int argc, char *argv[]) {
         double **matrixOne = matrixAllocationDouble(numberOfRowsOne, numberOfColumnsOne);
 
         //wprowadzenie elementow macierzy
-        cout << "Wprowadz elementy macierzy pierwszej: \n";
-        for (i = 0; i < numberOfRowsOne; i++)
-            for (j = 0; j < numberOfColumnsOne; j++)
-                cin >> matrixOne[i][j];
+        cout<<"Wprowadz elementy macierzy: \n";
+        matrixWrite(matrixOne,numberOfRowsOne,numberOfColumnsOne);
 
         //posortowanie wierszy macierzy
         double **matrixResult = sortRowInMatrix(matrixOne,numberOfRowsOne,numberOfRowsOne);
 
         //czytanie macierzy
-        cout << "\nMATRIX ONE: " << endl;
+        cout << "\nMATRIX: " << endl;
         ReadMatrix(matrixOne, numberOfRowsOne, numberOfColumnsOne);
         cout << "\nMATRIX RESULT: " << endl;
         ReadMatrix(matrixResult, numberOfRowsOne, numberOfColumnsOne);
@@ -1017,3 +1000,41 @@ void **ReadMatrix(double **matrix, int numberOfRows, int numberOfColumns)
         cout << "\n";
     }
 }
+
+
+//wczytanie wartosci do macierzy 2d int
+void **matrixWrite(int **matrix,int numberOfRows,int numberOfColumns)
+{
+    int i,j;
+    for(i = 0; i < numberOfRows; i++ )
+        for(j = 0; j < numberOfColumns; j++)
+        {
+            cin >> matrix[i][j];
+            if (cin.fail())
+            {
+                cout << "Wprowadzono niepoprawny znak!";
+                exit(-1);
+            }
+        }
+    cout<<"\n";
+
+}
+
+//wczytanie wartosci do macierzy 2d double
+void **matrixWrite(double **matrix,int numberOfRows,int numberOfColumns)
+{
+    int i,j;
+    for(i = 0; i < numberOfRows; i++ )
+        for(j = 0; j < numberOfColumns; j++)
+        {
+            cin >> matrix[i][j];
+            if (cin.fail())
+            {
+                cout << "Wprowadzono niepoprawny znak!";
+                exit(-1);
+            }
+        }
+    cout<<"\n";
+
+}
+
