@@ -11,7 +11,8 @@ int main()
     zadanie2();
     cout<<"\n\n-----------------Zadanie 3-------------------\n";
     zadanie3();
-
+    cout<<"\n\n-----------------Zadanie 4-------------------\n";
+    zadanie4();
 
 
 }

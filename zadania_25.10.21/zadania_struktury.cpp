@@ -41,10 +41,20 @@ struct samochod_zadanie_3{
 
 };
 
+//struktura do zadania 4
+struct samochod_zadanie_4{
+    string marka;
+    string model;
+    int rok_produkcji;
+    string kolor;
+
+
+};
 
 
 
-//zadanie 1
+
+//-------------------------------------------------zadanie 1
 void zadanie1() {
     int liczba_samochodow = 4;
 
@@ -64,10 +74,7 @@ void zadanie1() {
 
 }
 
-
-
-
-//zadanie 2
+//---------------------------------------------------zadanie 2
 void zadanie2() {
     int liczba_samochodow = 4;
 
@@ -88,10 +95,8 @@ void zadanie2() {
 
 }
 
-
-
-int funkcja_3(int a, samochod_zadanie_3 tablica);
-//zadanie 3
+//-------------------------------------------------zadanie 3
+int liczba_samochodow(samochod_zadanie_3 tablica[], int liczba_elementow, string marka);
 void zadanie3()
 {
     samochod_zadanie_3 tablica[] = {{"Peugeot",  "gti206", 2000, "bialy"},
@@ -104,37 +109,63 @@ void zadanie3()
                                     {"Suzuki",   "Swift",  2010, "czerwony"}};
     int a = 8;
 
+    string sprawdzana_marka = "Peugeot";
+   cout<<"Liczba samochodow marki "<< sprawdzana_marka <<": "<<liczba_samochodow(tablica, a, sprawdzana_marka )<<endl;
 
 }
 
-int funkcja_3(int a, samochod_zadanie_3 tablica[])
+//funkcja zwraca ilosc samochodow tej samej marki ,string marka umozliwia wybranie marki ktora chcemy sprawdzic
+int liczba_samochodow(samochod_zadanie_3 tablica[], int liczba_elementow, string marka)
 {
-    int i,j;
-    int suma = 0;
-    string temp = NULL;
+    int licznik = 0;
+
+        for (int j = 0; j < liczba_elementow; j++)
+        {
+            if (tablica[j].marka == marka)
+                licznik++;
+        }
+
+    return licznik;
+
+}
 
 
-    for(j = 0; j < a; j++)
+//-------------------------------------------------zadanie 4
+int najstarszy_samochod(samochod_zadanie_4 tablica[], int a);
+void zadanie4() {
+    int liczba_samochodow = 4;
+
+    samochod_zadanie_4 auta[]={{"Peugeot",  "gti206", 2000, "bialy"},
+                               {"Mercedes", "A45",    2020, "czerwony"},
+                               {"Renault",  "Clio",   2014, "srebrny"},
+                               {"Suzuki",   "Swift",  2010, "czerwony"}};
+
+    cout << "Marka\tModel \tRok \tKolor" << endl;
+    cout << "----------------------------------" << endl;
+
+    for (int i = 0; i < liczba_samochodow; i++)
     {
-        suma = 0;
-        for(int k = j; k < a; k++)
-        {
-            if(temp == tablica[k].marka)
-                j++;
-            continue;
-
-        }
-        cout<<"test";
-        for(i=0;i<a;i++)
-        {
-            if (tablica[j].marka == tablica[i].marka)
-            {
-                suma++;
-            }
-            temp = tablica[j].marka;
-        }
-        cout<< "Marka "<<tablica[j].marka<<" jest w ilosci: "<<suma<<endl;
+        cout << auta[i].marka << "\t" << auta[i].model << "\t" << auta[i].rok_produkcji <<   "\t" << auta[i].kolor << endl;
     }
+    cout<<"\n\n";
+    int indx = najstarszy_samochod(auta ,4);
+    cout<<"Najstaszy samochod jest o indeksie : "<< indx <<" czyli"<<auta[indx].marka<<" rok "<<auta[indx].rok_produkcji<<endl;
+}
+
+int najstarszy_samochod(samochod_zadanie_4 tablica[], int a)
+{
+    int min = 9999;
+    int indx;
+
+    for(int i = 0; i < a; i++)
+    {
+        if(tablica[i].rok_produkcji < min)
+        {
+            min = tablica[i].rok_produkcji;
+            indx = i;
+        }
+    }
+    return indx;
 }
 
 
