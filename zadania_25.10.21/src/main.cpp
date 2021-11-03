@@ -1,10 +1,11 @@
 #include <iostream>
-#include "header.h"
+#include "../header/header.h"
 
 using namespace std;
 
 int main()
 {
+    cout<<"------------ZADANIA STRUKTURY-------------------\n";
     cout<<"-----------------Zadanie 1-------------------\n";
     zadanie1();
     cout<<"\n\n-----------------Zadanie 2-------------------\n";
@@ -13,6 +14,8 @@ int main()
     zadanie3();
     cout<<"\n\n-----------------Zadanie 4-------------------\n";
     zadanie4();
+
+    cout<<"\n\n\n------------ZADANIA KLASY-------------------\n";
 
 
 }
