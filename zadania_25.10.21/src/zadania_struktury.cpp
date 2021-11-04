@@ -149,7 +149,7 @@ void zadanie4() {
     }
     cout<<"\n\n";
     int indx = najstarszy_samochod(auta ,4);
-    cout<<"Najstaszy samochod jest o indeksie : "<< indx <<" czyli"<<auta[indx].marka<<" rok "<<auta[indx].rok_produkcji<<endl;
+    cout<<"Najstarszy samochod jest o indeksie : "<< indx <<" czyli"<<auta[indx].marka<<" rok "<<auta[indx].rok_produkcji<<endl;
 }
 
 int najstarszy_samochod(samochod_zadanie_4 tablica[], int a)
