@@ -4,6 +4,8 @@
 #include "../header/kula.h"
 #include "../header/funkcja.h"
 #include "../header/student.h"
+#include "../header/punkt.h"
+#include "../header/figura.h"
 using namespace std;
 
 int main()
@@ -46,6 +48,14 @@ int main()
     student.get_dane();
     cout<<"Uzyskany procent punktow: "<<student.procent();
 
+    cout<<"\n\n------------ZADANIA KONSTRUKTOR-------------------\n";
+    cout<<"Zadanie 1 konstruktor: "<<endl;
+    Punkt p1(2,3);
+    Punkt p2(0,0);
+    cout<<"Odleglosc dwoch punktow od siebie wynosi: "<<p1.odleglosc(p2);
+    cout<<"\n\nZadanie 2 konstruktor: "<<endl;
+    Punkt tab[] = {p1,p2};
+    Figura figura(4,tab);
 
 
 
