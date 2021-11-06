@@ -6,6 +6,7 @@
 #include "../header/student.h"
 #include "../header/punkt.h"
 #include "../header/figura.h"
+#include "../header/destruktor.h"
 using namespace std;
 
 int main()
@@ -52,14 +53,16 @@ int main()
     cout<<"Zadanie 1 konstruktor: "<<endl;
     Punkt p1(2,3);
     Punkt p2(0,0);
-    cout<<"Odleglosc dwoch punktow od siebie wynosi: "<<p1.odleglosc(p2);
+    cout<<"Odleglosc dwoch punktow od siebie wynosi: "<<p1.odleglosc(p2); //odwolanie sie do funkcji umieszczonej w klasie obiektu p1
     cout<<"\n\nZadanie 2 konstruktor: "<<endl;
     Punkt tab[] = {p1,p2};
     Figura figura(4,tab);
-
-
-
-
+    cout<<"\n\n------------ZADANIA DESTRUKTOR-------------------\n";
+    cout<<"Zadanie 1 destruktor: "<<endl;
+    Destruktor *tDestruktor;
+    tDestruktor = new Destruktor;
+    tDestruktor -> pauza();
+    delete tDestruktor;
 
 
 

@@ -7,7 +7,7 @@ public:
     double x;
     double y;
 
-    double odleglosc(Punkt punkt_2);
+    double odleglosc(Punkt p2 );
     Punkt(double x, double y);
 
 };
