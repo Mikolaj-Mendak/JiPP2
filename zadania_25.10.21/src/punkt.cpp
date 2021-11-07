@@ -2,8 +2,8 @@
 #include "../header/punkt.h"
 
 //konstruktor
-Punkt::Punkt(double x, double y)
-        :x(x),y(y)
+Punkt::Punkt(double a, double b)
+        :x(a),y(b)
 {
 
 }

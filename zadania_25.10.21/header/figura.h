@@ -9,7 +9,7 @@ public:
     Punkt *wierzcholki_figury;
 
     //konstruktor
-    Figura(int wierzcholki,Punkt *wierzcholki_figury);
+    Figura(int wie,Punkt *wie_figury);
 
 
 };

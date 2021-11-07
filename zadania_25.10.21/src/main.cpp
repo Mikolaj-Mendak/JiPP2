@@ -61,7 +61,7 @@ int main()
     cout<<"Zadanie 1 destruktor: "<<endl;
     Destruktor *tDestruktor;
     tDestruktor = new Destruktor;
-    tDestruktor -> pauza();
+    tDestruktor->pauza();
     delete tDestruktor;
 
 

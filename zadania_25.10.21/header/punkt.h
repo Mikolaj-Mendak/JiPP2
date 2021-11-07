@@ -3,12 +3,13 @@
 
 class Punkt
 {
+
+
 public:
     double x;
     double y;
-
     double odleglosc(Punkt p2 );
-    Punkt(double x, double y);
+    Punkt(double a, double b);
 
 };
 
