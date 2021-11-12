@@ -16,7 +16,6 @@ private:
     string name;
 
 public:
-
     /**
      * Create point in passed place
      * @param x x coordinate of point
@@ -31,26 +30,10 @@ public:
      */
     Point(string name);
 
-    Point(Point& point)
-    {
-        *x = *point.x;
-
-        x = new double;
-
-        *y = *point.y;
-
-        y = new double;
-    }
-
-
-
-
     /**
      * Update name of point
      * @param name new point name
      */
-
-
     void setName(string name);
 
     /**
@@ -82,6 +65,26 @@ public:
      */
     void printData() const;
 
+    /**
+     * destruktor
+     */
+     ~Point()
+    {
+         delete x;
+         delete y;
+    }
+
+    /**
+    * konstruktor kopiujacy
+    */
+    Point(Point& Point)
+    {
+        x = new double;
+        *x = *Point.x;
+        y = new double;
+        *y = *Point.y;
+    }
+
     bool operator==(const Point &rhs) const;
 
     bool operator!=(const Point &rhs) const;
@@ -91,8 +94,6 @@ public:
     Point operator+=(const double &rhs) const;
 
     const string &getName() const;
-
-    ~Point();
 
 };
 

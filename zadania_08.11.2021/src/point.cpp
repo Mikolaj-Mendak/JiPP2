@@ -10,8 +10,6 @@ Point::Point(string name) : name(name) {
     *x = *y = 0;
 }
 
-
-
 double Point::getX() {
     return *x;
 }
@@ -49,9 +47,3 @@ bool Point::operator!=(const Point &rhs) const {
 const string &Point::getName() const {
     return name;
 }
-
-Point::~Point()
-{
-    delete x,y;
-}
-
