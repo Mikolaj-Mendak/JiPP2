@@ -13,6 +13,8 @@ class Pojazd
     string marka;
     string typ;
     string *miejsca;
+    static double najnowszaWersja;
+    double zainstalowanaWersja = 1.0;
 public:
     Pojazd(string numerRejestracyjny,string nazwa, int iloscMiejsc, string marka, string typ);
     ~Pojazd();
@@ -20,16 +22,17 @@ public:
 
     void ZmianaDanych(int numer, string zmiana);
     void show();
-    void ZmianaDanych();
 
-    string getNazwa();
-    string getNumerRejestracyjny();
-    string getMarka();
-    string getTyp();
+    string getNazwa()  const;
+    string getNumerRejestracyjny()  const;
+    string getMarka() const;
+    string getTyp()  const;
 
-    void setNazwa(string nazwa);
-    void setNumerRejestracyjny(string numerRejestracyjny);
+    void setNazwa(const string &nazwa);
+    void setNumerRejestracyjny(const string &numerRejestracyjny);
+    void zmianaOprogramowania();
 
+    static void opublikujNoweOprogramowanie(double numer);
 
 
 };

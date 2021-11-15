@@ -56,32 +56,52 @@ void Pojazd::ZmianaDanych(int numer, string zmiana)
 }
 
 //gettery
-string Pojazd::getMarka() {
+string Pojazd::getMarka() const
+{
     return marka;
 }
 
-string Pojazd::getNazwa()
+string Pojazd::getNazwa()  const
 {
     return nazwa;
 }
 
-string Pojazd::getTyp()
+string Pojazd::getTyp()  const
 {
     return typ;
 }
 
-string Pojazd::getNumerRejestracyjny()
+string Pojazd::getNumerRejestracyjny()  const
 {
     return numerRejestracyjny;
 }
 
 //settery
-void Pojazd::setNazwa(string nazwa)
+/**
+ * dodano zabezpieczenie przed zmiana wartosci (const)
+ */
+void Pojazd::setNazwa(const string &nazwa)
 {
     this->nazwa = nazwa;
 }
 
-void Pojazd::setNumerRejestracyjny(string numerRejestracyjny)
+void Pojazd::setNumerRejestracyjny(const string &numerRejestracyjny)
 {
     this->numerRejestracyjny = numerRejestracyjny;
+}
+
+//zmiana oprogramowania
+
+double Pojazd::najnowszaWersja = 2.0;
+void Pojazd :: zmianaOprogramowania()
+{
+    cout<<"Aktualna wersja oprogramowania: "<<zainstalowanaWersja<<endl;
+    zainstalowanaWersja = najnowszaWersja;
+    cout<<"Zmiana na wersje: "<<zainstalowanaWersja;
+}
+
+void Pojazd :: opublikujNoweOprogramowanie(double numer)
+{
+    najnowszaWersja = numer;
+    cout<<"Nowe oprogramowanie: "<<najnowszaWersja;
 }

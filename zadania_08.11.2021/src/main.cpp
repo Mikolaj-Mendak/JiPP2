@@ -78,6 +78,39 @@ cout<<"--------------------------Zadanie 1-------------------------------\n";
     cout<<"\nDane po nowych setterach";
     p1.show();
 
+    cout<<"-----------------------ZADANIE 2---------------------\n";
+    cout<<"\n2.3.1 Zmodyfikowano settery oraz gettery"<<endl;
+    cout<<"2.3.2 przeprowadzamy test dla przykladu 2.1.4"<<endl;
+
+    /**
+       * w przykladzie pierwszym stala jest wartosc, nie moze ona byc modyfikowana
+       * w przykladzie drugim staly jest wskaznik i nie moze byc on modyfikowany
+     */
+
+    //1)
+    int cVal = 314;
+    const int *p = &cVal;
+
+    //*p = 628;
+
+    const int cVal2 = 666;
+    p = &cVal2;
+
+    //2)
+
+    int *const p_2 = &cVal;
+
+    *p_2 = 628;
+
+    int cVal3 = 666;
+    //p_2 = &cVal3;
+
+    cout<<"2.3.5 zmiana wersji oprogramowania"<<endl;
+    p1.zmianaOprogramowania();
+
+    cout<<"\n2.3.6 opublikowanie najnowszej wersji oprogramowania"<<endl;
+    Pojazd::opublikujNoweOprogramowanie(5.0);
+
 
 
 
