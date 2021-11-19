@@ -20,19 +20,19 @@ public:
      * Create point in passed place
      * @param x x coordinate of point
      * @param y y coordinate of point
-     * @param name name of point
+     * @param name nazwa of point
      */
     Point(double x, double y, string name);
 
     /**
      * Create point in 0, 0
-     * @param name name of point
+     * @param name nazwa of point
      */
     Point(string name);
 
     /**
-     * Update name of point
-     * @param name new point name
+     * Update nazwa of point
+     * @param name new point nazwa
      */
     void setName(string name);
 

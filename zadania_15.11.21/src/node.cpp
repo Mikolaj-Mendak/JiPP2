@@ -20,7 +20,7 @@ void Node::updateValue(double x, double y) {
     this->y = y;
 }
 
-double pointsDistance(Node a, Node b)
+double punkt(Node a, Node b)
 {
     return sqrt(pow((b.x-a.x),2) + pow((b.y-a.y),2));
 };

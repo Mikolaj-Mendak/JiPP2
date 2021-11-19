@@ -15,7 +15,7 @@
 class Node {
 private:
     double x, y;
-    friend double pointsDistance(Node a, Node b);
+    friend double punkt(Node a, Node b);
 public:
     Node();
     Node(double x, double y);
@@ -25,7 +25,7 @@ public:
     void updateValue(double x, double y);
 
 };
-double pointsDistance(Node a, Node b);
+double punkt(Node a, Node b);
 
 
 #endif //JIPP2_NODE_H
