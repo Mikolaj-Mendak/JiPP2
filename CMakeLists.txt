@@ -12,4 +12,4 @@ add_subdirectory(matrixApp)
 add_subdirectory(matrixLib)
 add_subdirectory(zadania_08.11.2021)
 add_subdirectory(zadania_15.11.21)
-
+add_subdirectory(zadania_22.11.2021)

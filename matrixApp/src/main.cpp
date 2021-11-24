@@ -18,7 +18,10 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-
+    if(argc == 1)
+    {
+        help();
+    }
 
     if(string(argv[1]) == "help" || ((string(argv[1]) == "powerMatrix") && argc != 3)
         || ((string(argv[1]) != "powerMatrix") && argc != 2))
