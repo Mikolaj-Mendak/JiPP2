@@ -1,4 +1,4 @@
-#include<iostream>;
+#include<iostream>
 #ifndef JIPP_VECTOR_H
 #define JIPP_VECTOR_H
 
@@ -22,11 +22,16 @@ public:
     Vector operator!();
     Vector &operator!=(const Vector &rhs);
     double operator*(const Vector &rhs) const;
-    double operator*=(const Vector &rhs);
     bool operator==(const Vector &rhs) const;
 
     double length();
 };
+/**
+ * dodanie funkcji zaprzyjaznionej liczacej mnozenie przez skalar
+ * @param lhs
+ * @param rhs
+ * @return
+ */
 Vector operator*(const double &lhs, const Vector &rhs);
 std::ostream &operator<<(std::ostream &lhs,const Vector &rhs);
 

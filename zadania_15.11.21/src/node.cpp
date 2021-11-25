@@ -12,7 +12,7 @@ Node::Node() {
 Node::Node(double x, double y): x(x), y(y) {}
 
 void Node::display() {
-    cout << "x: " << x << "\ty: " << y << endl;
+    cout << "( " << x << "," << y <<")"<< endl;
 }
 
 void Node::updateValue(double x, double y) {

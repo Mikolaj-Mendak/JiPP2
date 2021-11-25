@@ -1,29 +1,38 @@
 #include<iostream>
-#include<math.h>
 #include "../include/node.h"
 #include "../include/vector.h"
+#include "../include/ComplexNumbers.h"
+#include "../include/Triangle.h"
 using namespace std;
 
 int main()
 {
-    cout<<"-----------zadania 1 node-----------\n";
-    Node a,b;
-    a.updateValue(3,4);
-    b.updateValue(6,7);
-    cout << "Odleglosc dwoch punktow: " << punkt(a, b);
+    /**
+     *Zadania pierwsze, zaprzyjaznianie funkcji
+     * zaprzyjaznianie funkcji uzywamy w celu
+     * mozliwosci uzycia funkcji z poza klasy ale uzywajac jej elementow
+     */
+    cout<<"\t\tZADANIA Z NODE\n";
+    Node a, b(5, 8), c(1, 16);
+    cout << "Odleglosc dwoch punktow: " << punkt(a,b);
     cout<<endl;
-    cout<<"-----------zadania 2 vector----------"<<endl;
 
-    cout<<"Wyswietl wektor 1: ";
+    /**
+    *  Zadania z wektorami
+     *  Na poczatku tworzymy funkcje wyswietlajaca wektory
+     *  nastepnie uzywamy operatorów w celu utworzenia wszysrkich mozliwych operacji
+    */
+    cout<<"\n\t\tZADANIA Z VECTOR"<<endl;
     Vector v1(2,3), v2(5,10);
-
-    ///wyswietlenie wektora
+    cout<<"Wyswietl wektor 1: ";
     v1.Print();
     cout<<"\nWyswietl wektor 2: ";
     v2.Print();
 
     /**
      * Pozostałe metody działania operatorów
+     * dodane testy
+     * uzycie funkcji zaprzyjaznionej
      */
 
     ///Dodawanie
@@ -35,7 +44,7 @@ int main()
     cout<<"\nOdejmowanie: v3 = ";
     v3.Print();
     ///Mnożenie przez skalar
-    v3 = 4 * v1;
+    v3 = 4*v2;
     cout<<"\nMnozenie przez skalar: v3 = ";
     v3.Print();
     ///mnozenie skalarne wektorow
@@ -48,25 +57,34 @@ int main()
     v3 = !v1;
     cout<<"Wektor przeciwny do v1: ";
     v3.Print();
-
-    cout<<"\nPrzeciazenie operatora <<"<<endl;
+    cout<<"\nPrzeciazenie operatora \"<<\" wektor V3: ";
     cout<<v3<<endl;
 
 
 
 
+    /**
+     * Klasa liczb urojonych przykladowym dodawaniem
+     */
+
+    cout<<"\t\tKLASA LICZB UROJONYCH"<<endl;
+    ComplexNumbers L1(3,4);
+    ComplexNumbers L2(4,5);
+    L1.showComplexNumbers();
+    L2.showComplexNumbers();
+    ComplexNumbers L3(0,0);
+    L3 = L1 + L2;
+    cout<<"Suma dwoch liczb jest rowna:   ";
+    L3.showComplexNumbers();
+    L3 += L2;
+
+    cout<<"\n\t\tZADANIA TRIANGLE"<<endl;
 
 
 
 
 
-
-
-
-
-
-
-
+return 0;
 
 
 }

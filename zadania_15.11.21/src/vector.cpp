@@ -13,7 +13,7 @@ double Vector::length() {
 
 void Vector::Print()
 {
-  std::cout<<"x: "<<this->x<<" y: "<<this->y;
+  std::cout<<"(x: "<<this->x<<" y: "<<this->y<<")";
 }
 
 ///dodawanie Vectorów
@@ -48,13 +48,13 @@ double Vector::operator*(const Vector &rhs) const
     return this->x * rhs.x + this->y * rhs.y;
 }
 
-double Vector::operator*=(const Vector &rhs)
-{
-    return this->x * rhs.x + this->y * rhs.y;
-}
-
-
 ///iloczyn skalarny wektorow
+/**
+ * dodanie funkcji zaprzyjaznionej liczacej mnozenie przez skalar
+ * @param lhs
+ * @param rhs
+ * @return
+ */
 Vector operator*(const double &lhs, const Vector &rhs)
 {
     return { lhs * rhs.x, lhs * rhs.y};
@@ -76,15 +76,14 @@ Vector &Vector::operator!=(const Vector &rhs)
 ///porownanie wektorow
 bool Vector::operator==(const Vector &rhs) const
 {
-    return (this->x == rhs.x && this->y == rhs.y);
+    return (x == rhs.x && y == rhs.y);
 }
 
 ///wyswietl wektor
 std::ostream &operator<<(std::ostream &lhs,const Vector &rhs)
 {
-    lhs << "x: "<<rhs.x<<"y: "<<rhs.y;
+    std::cout<<"(x: "<<rhs.x<<"  y: "<<rhs.y<<")";
 }
-
 
 
 
