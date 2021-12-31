@@ -3,7 +3,7 @@
 
 
 ComplexNumbers::ComplexNumbers(int a, int b)
-:RealPart(a), ImaginaryPart(a){}
+:RealPart(a), ImaginaryPart(b){}
 
 ComplexNumbers ComplexNumbers::operator+(const ComplexNumbers &rhs) const
 {

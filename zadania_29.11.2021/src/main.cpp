@@ -11,14 +11,14 @@ int main(){
     do {
         cout << "Wprowadz tytul notatki: ";
         getline(cin, titleUser);
-        TextNote titleNote;
-        titleNote.setTitle(titleUser);
+        TextNote FirstNote;
+        FirstNote.setTitle(titleUser);
         cout << "\nWprowadz zawartosc notatki: " << endl;
         getline(cin, contentUser);
         TextNote contentNote;
-        contentNote.setContent(contentUser);
+        FirstNote.setContent(contentUser);
         cout<<"\n\tWyswietlenie notatki: "<<endl;
-        cout<<"Tytul: "<<titleNote.getTitle()<<endl;
+        cout<<"Tytul: "<<FirstNote.getTitle()<<endl;
         cout<<"Zawartosc: "<<contentNote.getContent()<<endl;
         cout << "Wprowadz # w celu zatrzymania programu, kliknij enter w celu kontynuacji.";
         getline(cin, stop);
