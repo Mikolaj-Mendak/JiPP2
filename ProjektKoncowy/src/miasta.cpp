@@ -7,14 +7,20 @@ Nazwa::Nazwa(string nazwa)
 :nazwa(nazwa)
 {}
 
+double Nazwa::Zaludnienie()
+{
+    return 0;
+}
 
 /**
  * konstruktor klasy Wojewodztwo
  * @param nazwaWojewodzwta
  */
-Wojewodztwo::Wojewodztwo(string nazwa, double liczbaMieszkancow)
-: Nazwa(nazwa), liczbaMieszkancow(liczbaMieszkancow)
-{}
+Wojewodztwo::Wojewodztwo(string nazwa, double liczbaMieszkancow,double polePowierzchni)
+: Nazwa(nazwa), liczbaMieszkancow(liczbaMieszkancow),polePowierzchni(polePowierzchni)
+{
+
+}
 
 /**
  * konstruktor klasy miasto
@@ -24,7 +30,7 @@ Wojewodztwo::Wojewodztwo(string nazwa, double liczbaMieszkancow)
  * @param RokPowstania
  */
 
-Miasto::Miasto(const string nazwa,  double liczbaMieszkancow , const double &polePowierzchni, const int &RokPowstania)
+Miasto::Miasto(const string nazwa,  double liczbaMieszkancow , const double &polePowierzchni,const int &rokPowstania)
 :Nazwa(nazwa), liczbaMieszkancow(liczbaMieszkancow),
 polePowierzchni(polePowierzchni),rokPowstania(rokPowstania)
 {}
@@ -36,12 +42,12 @@ polePowierzchni(polePowierzchni),rokPowstania(rokPowstania)
  */
 double Miasto::Zaludnienie()
 {
-    return polePowierzchni/liczbaMieszkancow;
+    return liczbaMieszkancow/polePowierzchni;
 }
 
 double Wojewodztwo::Zaludnienie()
 {
-    return polePowierzchni/liczbaMieszkancow;
+    return liczbaMieszkancow/polePowierzchni;
 }
 
 /**
@@ -50,7 +56,6 @@ double Wojewodztwo::Zaludnienie()
 Nazwa::~Nazwa()
 {
     delete [] tab;
-    cout<<"Destrutkor zostal wywolany i usunal zaalakowana pamiec!"<<endl;
 }
 
 /**
@@ -66,17 +71,34 @@ void Wojewodztwo::dodajMiato(Miasto *miasto) {
 */
 
 void Miasto::print(){
-    cout<<"Nazwa miasta: \t"<<nazwa<<"\nLiczba mieszkancow: \t"<<liczbaMieszkancow
-    <<"\nPowierzchnia: \t"<<polePowierzchni<<"Rok powstania: \t"<<rokPowstania<<"\nZaludnienie: "<<Zaludnienie();
+    cout<<"Nazwa miasta: "<<nazwa<<"\nLiczba mieszkancow: "<<liczbaMieszkancow
+    <<"\nPowierzchnia: "<<polePowierzchni<<"\nRok powstania: "<<rokPowstania<<"\nZaludnienie: "<<endl;
+
 }
 
 void Wojewodztwo::print(){
-    cout<<"WOJEWODZTWO: "<<nazwa<<"\nPOLE POWIERZCHNI: "<<polePowierzchni<<"\nLICZBA MIESZKANCOW: "
-    <<liczbaMieszkancow<<"\nZALUDNIENIE: "<<Zaludnienie();
-    cout<<"\nMiasto"<<endl;
 
-    for(int i=0 ; i < miasta.size(); i++)
-    {
-        miasta[i] -> print();
-    }
+    cout<<"Nazwa wojewodztwa: "<<nazwa<<endl;
+    cout<<"Liczba ludnosci: "<<liczbaMieszkancow<<endl;
+    cout<<"Pole powierzchni km2: "<<polePowierzchni<<endl;
+   // cout<<"Zaludnienie (osoby na km2): "<<Zaludnienie()<<endl;
+
+
+
+     for(int i=0 ; i < miasta.size(); ++i)
+     {
+
+         cout<<"\n"<<i+1<<")"<<endl;
+         miasta[i] -> print();
+
+     }
+    cout<<"---------------------------------------------------"<<endl;
 }
+
+void Wojewodztwo::printWoj(){
+
+    cout<<"Nazwa wojewodztwa: "<<nazwa<<endl;
+
+
+}
+
