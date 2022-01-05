@@ -7,6 +7,10 @@ Nazwa::Nazwa(string nazwa)
 :nazwa(nazwa)
 {}
 
+Miasto::Miasto()
+:
+{}
+
 double Nazwa::Zaludnienie()
 {
     return 0;
@@ -66,13 +70,18 @@ void Wojewodztwo::dodajMiato(Miasto *miasto) {
     miasta.push_back(miasto);
 }
 
+void Wojewodztwo::usunMiasto(Miasto *miasto,int numer)
+{
+    miasta.erase(miasta.begin()+numer);
+}
+
 /**
 * wyswietlanie danych o miescie w danym wojewodztwie ktorego nazwa tez jest wyswietalana
 */
 
 void Miasto::print(){
     cout<<"Nazwa miasta: "<<nazwa<<"\nLiczba mieszkancow: "<<liczbaMieszkancow
-    <<"\nPowierzchnia: "<<polePowierzchni<<"\nRok powstania: "<<rokPowstania<<"\nZaludnienie: "<<endl;
+    <<"\nPowierzchnia: "<<polePowierzchni<<"\nRok powstania: "<<rokPowstania<<"\nZaludnienie: "<<Zaludnienie()<<endl;
 
 }
 
@@ -81,7 +90,7 @@ void Wojewodztwo::print(){
     cout<<"Nazwa wojewodztwa: "<<nazwa<<endl;
     cout<<"Liczba ludnosci: "<<liczbaMieszkancow<<endl;
     cout<<"Pole powierzchni km2: "<<polePowierzchni<<endl;
-   // cout<<"Zaludnienie (osoby na km2): "<<Zaludnienie()<<endl;
+   cout<<"Zaludnienie (osoby na km2): "<<Zaludnienie()<<endl;
 
 
 

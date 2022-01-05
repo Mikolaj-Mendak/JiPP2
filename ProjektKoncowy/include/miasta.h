@@ -28,6 +28,7 @@ private:
 
 public:
     Miasto(string nazwa, double liczbaMieszkancow , const double &polePowierzchni,const int &rokPowstania);
+    Miasto();
     void print();
     virtual double Zaludnienie() override;
 };
@@ -37,14 +38,15 @@ class Wojewodztwo : public Nazwa
 private:
 
     double polePowierzchni;
-    double liczbaMieszkancow;
     vector<Miasto *> miasta;
 public:
+    double liczbaMieszkancow;
     Wojewodztwo(string nazwa, double liczbaMieszkancow ,double polePowierzchni);
     void dodajMiato(Miasto *miasto);
     void printWoj();
     void print();
     virtual double Zaludnienie() override;
+    void usunMiasto(Miasto *miasto,int numer);
 };
 
 #endif //JIPP_MIASTA_H
